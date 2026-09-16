@@ -15,4 +15,20 @@ test("extracts, sorts, and deduplicates dates", () => {
   assert.deepEqual(result.map(({ title, date }) => ({ title, date })), [{ title: "Problem Set", date: "2026-09-18" }, { title: "Midterm exam", date: "2026-10-03" }]);
 });
 test("rejects impossible dates and identifies assumed years", () => { assert.equal(extractDeadlines("February 30 — Impossible", 2026).length, 0); assert.equal(extractDeadlines("September 18 — Quiz", 2026)[0].assumedYear, true); });
+test("yearless deadlines use the current year by default", () => {
+  const result = extractDeadlines("September 18 — Quiz");
+  assert.equal(result[0].date, `${new Date().getFullYear()}-09-18`);
+});
+test("keeps assessed work and excludes dated course topics", () => {
+  const result = extractDeadlines(`
+    September 1 — Week 1: Chapter 1, Introduction
+    September 8 — Topic: Financial statements
+    September 15 — Chapter 3 lecture
+    September 18 — Homework 1 due
+    October 3 — Midterm exam
+    October 10 — Midterm review
+    October 17 — Week 7: Research proposal due
+  `, 2026);
+  assert.deepEqual(result.map(({ title }) => title), ["Homework 1", "Midterm exam", "Week 7: Research proposal"]);
+});
 test("calendar output contains escaped all-day events", () => { const ics = buildIcs([{ title: "Exam, Part 1", date: "2026-10-03" }]); assert.match(ics, /DTSTART;VALUE=DATE:20261003/); assert.match(ics, /DTEND;VALUE=DATE:20261004/); assert.match(ics, /SUMMARY:Exam\\, Part 1/); });

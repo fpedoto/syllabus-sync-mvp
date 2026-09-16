@@ -20,10 +20,19 @@ export function evaluateExperiment({ visitors, downloads, offerClicks }) {
   return "change";
 }
 
-export function normalizeYear(year, fallbackYear = 2026) {
+export function normalizeYear(year, fallbackYear = new Date().getFullYear()) {
   if (!year) return fallbackYear;
   const value = Number(year);
   return value < 100 ? 2000 + value : value;
+}
+
+function isAcademicDeadline(line) {
+  const value = line.toLowerCase();
+  const reviewOnly = /\b(exam|test|midterm|final)\s+review\b|\breview\s+(?:for\s+)?(?:the\s+)?(exam|test|midterm|final)\b/;
+  if (reviewOnly.test(value) && !/\bdue\b/.test(value)) return false;
+
+  const assessedWork = /\b(assignments?|homeworks?|problem\s*sets?|projects?|papers?|essays?|proposals?|presentations?|reports?|labs?|quiz(?:zes)?|exams?|midterms?|finals?|tests?|submissions?|deliverables?|discussions?|reflections?|worksheets?|case\s+(?:study|analysis)|due)\b/;
+  return assessedWork.test(value);
 }
 
 function validIso(year, month, day) {
@@ -42,7 +51,7 @@ function cleanTitle(line, matchedText) {
   return withoutDate || "Course deadline";
 }
 
-export function extractDeadlines(text, fallbackYear = 2026) {
+export function extractDeadlines(text, fallbackYear = new Date().getFullYear()) {
   const lines = String(text).split(/\r?\n/).map((line) => line.trim()).filter(Boolean);
   const results = [];
   const seen = new Set();
@@ -50,6 +59,7 @@ export function extractDeadlines(text, fallbackYear = 2026) {
   const written = new RegExp(`\\b(${monthPattern})\\.?\\s+(\\d{1,2})(?:st|nd|rd|th)?(?:,?\\s+(\\d{2,4}))?\\b`, "i");
   const numeric = /\b(\d{1,2})[\/-](\d{1,2})(?:[\/-](\d{2,4}))?\b/;
   for (const line of lines) {
+    if (!isAcademicDeadline(line)) continue;
     let match = line.match(written);
     let month; let day; let year;
     if (match) {
