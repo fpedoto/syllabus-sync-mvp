@@ -1,37 +1,40 @@
-# BUSFIN 4215 Venture MVP Starter
+# SyllabusSync MVP
 
-This is a deployable starting point for the team **Venture MVP / Landing Page** project. It
-shows the structure of a causal claim, a meaningful call to action, a precommitted decision
-rule, explicit denominators, and transparent evidence. It deliberately transmits no data.
+SyllabusSync tests whether undergraduate students managing at least four courses will turn pasted syllabus text into a reviewed calendar file—and whether they show purchase interest at **$4.99 per semester**.
 
-Submitting the unchanged starter is not acceptable. Replace its customer, problem, value
-mechanism, interaction, hypothesis, evidence, economics, writing, and visual identity.
+- **Live product:** https://fpedoto.github.io/syllabus-sync-mvp/
+- **Source:** https://github.com/fpedoto/syllabus-sync-mvp
+- **Team:** Francie Pedoto and Grace Pavloff
 
-## Start and test
+## Meaningful user path
+
+1. Paste non-sensitive syllabus text or load the sample.
+2. Extract common written or numeric dates locally in the browser.
+3. Review, edit, add, or remove every deadline.
+4. Download a working `.ics` calendar file.
+5. Choose whether to click a clearly labeled $4.99-per-semester offer; no payment or contact data is collected.
+
+The product does not upload or store pasted text. It handles missing input, unrecognized and invalid dates, assumed years, incomplete fields, duplicate rows, and correction before download. The parser is intentionally limited and requires user review.
+
+## Run and verify
+
+Install Node.js, then run:
 
 ```bash
-npm run serve
 npm test
+npm run serve
 ```
 
-Open <http://localhost:8000>. Complete `EXPERIMENT.md` before changing the interface.
+Open `http://localhost:8000`, complete the path with sample text, and open the downloaded file in a calendar application. Also test on a phone, keyboard-only, and in a private browser window.
 
-## Deploy
+## Submission package
 
-Push to `main`. In **Settings → Pages**, select **GitHub Actions** if needed. The included
-workflow tests the experiment logic and deploys the static site. Verify the public URL in a
-private browser window and on a second device.
+- [`EXPERIMENT.md`](EXPERIMENT.md): precommitted causal claim, denominator, thresholds, and ethics
+- [`EVIDENCE.md`](EVIDENCE.md): moderator protocol, 20-person denominator, behavioral funnel, and revision verification
+- [`ECONOMICS.md`](ECONOMICS.md): price, variable costs, contribution, acquisition, retention, and cash logic
+- [`BUILD_LOG.md`](BUILD_LOG.md): transparent AI contribution, human verification, limitations, and team ownership
+- [`REVISION_RECEIPT.md`](REVISION_RECEIPT.md): consequential Wave 1 → Wave 2 revision record
 
-## Evidence package
+## Deployment
 
-- public URL and repository/source;
-- `EXPERIMENT.md` with a named hypothesis and precommitted rule;
-- `EVIDENCE.md` with ethical behavioral evidence and denominators;
-- `ECONOMICS.md`;
-- `BUILD_LOG.md`; and
-- `REVISION_RECEIPT.md`.
-
-The starter's local click count is only a transparent demonstration. It is not credible
-customer evidence. If the venture truly needs persistent data, consult the instructor
-before adding a backend, collect the minimum data possible, and explain retention and
-consent.
+Push to `main`. Under **Settings → Pages**, choose **GitHub Actions** if necessary. The included workflow tests the experiment logic and deploys the static site. Verify the public URL on a second device before inviting testers.
