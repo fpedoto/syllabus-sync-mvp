@@ -25,3 +25,4 @@ This log separates generated work, automated checks, and human verification. It 
 - **Important limitation:** This MVP recognizes common text dates but is not a complete syllabus parser. It cannot reliably interpret tables, relative dates, recurring schedules, time zones, or every PDF format. Users must review every extracted date. A paid-offer click signals interest but does not prove willingness to pay.
 
 Confirm or edit the proposed ownership labels before submission so they reflect the work actually performed.
+| Sep. 16, 2026 | Francie Pedoto | Verify the complete live product path using a realistic Canvas syllabus. | Tested the deployed website without changing the product. | Successfully pasted syllabus content, extracted 10 deadlines, reviewed the results, downloaded the `.ics` file, and opened it successfully in Outlook using Edge on a Dell laptop. | The complete user path worked as intended; the generated dates and titles were reviewed for accuracy. |
