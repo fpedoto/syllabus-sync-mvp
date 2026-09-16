@@ -1,0 +1,23 @@
+Course Details - Detailed Course Schedule
+
+| Week (Date) | Topic | Tues | Wed | Thurs | Fri |
+| 1 (8/25-8/28) | Ch 2: Int'l Flow of Funds | | | Carmen Syllabus Quiz opens at 12:00 am | Carmen Syllabus Quiz due by 11:59pm |
+| 2 (8/31-9/4) | Evolution of the Int'l Monetary System | Ch 2 MindTap Assignment | Ch 2 MindTap Quiz | Carmen Biweekly Quiz 1 opens at 12:00 am | Carmen Biweekly Quiz 1 is due by 11:59 pm |
+| 3 (9/7-9/11) | Ch 3: Int'l Financial Mkts | | | Ch 3 MindTap Assignment | Ch 3 MindTap Quiz |
+
+Final Exam opens at 12:00am
+Final Exam due by 11:59 pm
+
+## Course Details - Canvas Assignment Schedule
+
+| Date | Name | Assignment Type | Points |
+| 8/28/26 | [Syllabus Quiz](https://example.edu/assignments/1) | Quiz | 6 |
+| 9/1/26 | [Apply It: Chapter 2 Assignment](https://example.edu/assignments/2) | Assignment | 18 |
+| 9/2/26 | [Weekly Quiz (Chapter 2)](https://example.edu/assignments/3) | Assignment | 20 |
+| 9/4/26 | [Quiz 1 - Honorlock](https://example.edu/assignments/4) | Quiz | 10 |
+| 9/10/26 | [Apply It: Chapter 3 Assignment](https://example.edu/assignments/5) | Assignment | 24 |
+| 9/11/26 | [Weekly Quiz (Chapter 3)](https://example.edu/assignments/6) | Assignment | 20 |
+| 9/13/26 | [Student Survey on Chapter Highlights](https://example.edu/quizzes/7) | Quiz | 0 |
+| 9/15/26 | [Apply It: Chapter 5 Assignment](https://example.edu/assignments/8) | Assignment | 20 |
+| 9/16/26 | [Weekly Quiz (Chapter 5)](https://example.edu/assignments/9) | Assignment | 20 |
+| 9/18/26 | [Quiz 2](https://example.edu/assignments/10) | Quiz | 10 |

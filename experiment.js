@@ -42,7 +42,25 @@ function validIso(year, month, day) {
 }
 
 function cleanTitle(line, matchedText) {
-  const withoutDate = line.replace(matchedText, " ")
+  const readable = line
+    .replace(/<br\s*\/?\s*>/gi, " ")
+    .replace(/\[([^\]]+)]\((?:https?:\/\/[^)]+)\)/gi, "$1")
+    .replace(/https?:\/\/\S+/gi, " ")
+    .replace(/\\/g, " ");
+
+  if (readable.includes("|")) {
+    const cells = readable.split("|")
+      .map((cell) => cell.replace(matchedText, " ").replace(/\s+/g, " ").trim())
+      .filter(Boolean);
+    const contentCell = cells.find((cell) =>
+      !/^(assignment|quiz|exam|test|points?|date|name|assignment type)$/i.test(cell)
+      && !/^\d+(?:\.\d+)?$/.test(cell)
+      && !/^[-: ]+$/.test(cell)
+    );
+    if (contentCell) return contentCell.replace(/\b(?:is\s+)?due\b.*$/i, "").trim() || "Course deadline";
+  }
+
+  const withoutDate = readable.replace(matchedText, " ")
     .replace(/^[\s:;\-–—•*\d.)]+/, "")
     .replace(/\b(due|on|by)\b\s*[:\-–—]?/gi, " ")
     .replace(/[\s:;\-–—]+$/g, "")
@@ -60,6 +78,8 @@ export function extractDeadlines(text, fallbackYear = new Date().getFullYear()) 
   const numeric = /\b(\d{1,2})[\/-](\d{1,2})(?:[\/-](\d{2,4}))?\b/;
   for (const line of lines) {
     if (!isAcademicDeadline(line)) continue;
+    if (/\b\d{1,2}[\/-]\d{1,2}\s*[-–—]\s*\d{1,2}[\/-]\d{1,2}\b/.test(line)) continue;
+    if (/\bopens?\b/i.test(line) && !/\bdue\b/i.test(line)) continue;
     let match = line.match(written);
     let month; let day; let year;
     if (match) {
