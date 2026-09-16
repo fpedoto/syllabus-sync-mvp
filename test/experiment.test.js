@@ -44,4 +44,32 @@ test("extracts exact deadlines from messy copied Canvas Markdown tables", () => 
   assert.equal(result.at(-1).title, "Quiz 2");
   assert.equal(result.some(({ title }) => /Flow of Funds|Evolution|Financial Mkts/.test(title)), false);
 });
+test("reconstructs Canvas rows when copied columns become separate lines", () => {
+  const copiedTable = `
+    Course Details - Canvas Assignment Schedule
+    Date Name Assignment Type Points
+    8/28/26
+    Syllabus Quiz
+    Quiz
+    6
+    9/1/26
+    Apply It: Chapter 2 Assignment
+    Assignment
+    18
+    9/2/26
+    Weekly Quiz (Chapter 2)
+    Assignment
+    20
+    9/13/26
+    Student Survey on Chapter Highlights
+    Quiz
+    0
+  `;
+  assert.deepEqual(extractDeadlines(copiedTable, 2026).map(({ title, date }) => ({ title, date })), [
+    { title: "Syllabus Quiz", date: "2026-08-28" },
+    { title: "Apply It: Chapter 2 Assignment", date: "2026-09-01" },
+    { title: "Weekly Quiz (Chapter 2)", date: "2026-09-02" },
+    { title: "Student Survey on Chapter Highlights", date: "2026-09-13" },
+  ]);
+});
 test("calendar output contains escaped all-day events", () => { const ics = buildIcs([{ title: "Exam, Part 1", date: "2026-10-03" }]); assert.match(ics, /DTSTART;VALUE=DATE:20261003/); assert.match(ics, /DTEND;VALUE=DATE:20261004/); assert.match(ics, /SUMMARY:Exam\\, Part 1/); });

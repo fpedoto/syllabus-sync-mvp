@@ -76,7 +76,24 @@ export function extractDeadlines(text, fallbackYear = new Date().getFullYear()) 
   const monthPattern = Object.keys(MONTHS).sort((a, b) => b.length - a.length).join("|");
   const written = new RegExp(`\\b(${monthPattern})\\.?\\s+(\\d{1,2})(?:st|nd|rd|th)?(?:,?\\s+(\\d{2,4}))?\\b`, "i");
   const numeric = /\b(\d{1,2})[\/-](\d{1,2})(?:[\/-](\d{2,4}))?\b/;
-  for (const line of lines) {
+  const standaloneExactDate = /^\|?\s*\d{1,2}[\/-]\d{1,2}[\/-]\d{2,4}\s*\|?$/;
+  const nextStandaloneDate = /^\|?\s*\d{1,2}[\/-]\d{1,2}(?:[\/-]\d{2,4})?\s*\|?$/;
+  for (let index = 0; index < lines.length; index += 1) {
+    const originalLine = lines[index];
+    let line = originalLine;
+
+    // Copying a rendered Canvas table often places Date, Name, Type, and Points
+    // on separate lines. Rebuild enough of that row to classify and name it.
+    if (standaloneExactDate.test(originalLine)) {
+      const followingCells = [];
+      for (let offset = 1; offset <= 4 && index + offset < lines.length; offset += 1) {
+        const candidate = lines[index + offset];
+        if (nextStandaloneDate.test(candidate)) break;
+        followingCells.push(candidate);
+      }
+      line = [originalLine, ...followingCells].join(" | ");
+    }
+
     if (!isAcademicDeadline(line)) continue;
     if (/\b\d{1,2}[\/-]\d{1,2}\s*[-–—]\s*\d{1,2}[\/-]\d{1,2}\b/.test(line)) continue;
     if (/\bopens?\b/i.test(line) && !/\bdue\b/i.test(line)) continue;

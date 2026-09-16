@@ -1,4 +1,4 @@
-import { buildIcs, extractDeadlines } from "./experiment.js";
+import { buildIcs, extractDeadlines } from "./experiment.js?v=20260916-4";
 
 const textArea = document.querySelector("#syllabus-text");
 const pastePanel = document.querySelector("#paste-panel");
