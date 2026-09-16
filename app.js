@@ -6,6 +6,7 @@ const reviewPanel = document.querySelector("#review-panel");
 const successPanel = document.querySelector("#success-panel");
 const deadlineList = document.querySelector("#deadline-list");
 let latestIcs = "";
+let latestDownloadUrl = "";
 const exampleText = `September 18 — Problem Set 2 due\nOct. 3: Midterm exam\nOctober 17 — Research proposal due\n11/12/2026 Final project presentation\nDecember 8 — Final exam`;
 
 function setStep(step) {
@@ -25,10 +26,10 @@ function updateSummary() {
   document.querySelector("#review-summary").textContent = `${count} deadline${count === 1 ? "" : "s"} ready for review. Check every date against the syllabus before downloading.`;
 }
 function currentDeadlines() { return [...deadlineList.querySelectorAll(".deadline-row")].map((row) => ({ title: row.querySelector(".deadline-title").value.trim(), date: row.querySelector(".deadline-date").value })); }
-function downloadIcs() {
-  const url = URL.createObjectURL(new Blob([latestIcs], { type: "text/calendar;charset=utf-8" }));
-  const link = document.createElement("a"); link.href = url; link.download = "syllabus-sync-deadlines.ics"; document.body.append(link); link.click(); link.remove();
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
+function prepareDownload() {
+  if (latestDownloadUrl) URL.revokeObjectURL(latestDownloadUrl);
+  latestDownloadUrl = URL.createObjectURL(new Blob([latestIcs], { type: "text/calendar;charset=utf-8" }));
+  document.querySelector("#download-link").href = latestDownloadUrl;
 }
 
 textArea.addEventListener("input", () => { document.querySelector("#character-count").textContent = `${textArea.value.length.toLocaleString()} characters`; showMessage("#paste-error", ""); });
@@ -48,9 +49,11 @@ document.querySelector("#download-button").addEventListener("click", () => {
   const deadlines = currentDeadlines(); const invalid = deadlines.find((item) => !item.title || !item.date);
   if (!deadlines.length || invalid) { showMessage("#review-error", !deadlines.length ? "Add at least one deadline before downloading." : "Every deadline needs both a name and a valid date."); return; }
   if (new Set(deadlines.map((item) => `${item.date}|${item.title.toLowerCase()}`)).size !== deadlines.length) { showMessage("#review-error", "Remove duplicate deadline rows before downloading."); return; }
-  showMessage("#review-error", ""); latestIcs = buildIcs(deadlines); downloadIcs();
-  document.querySelector("#success-copy").textContent = `${deadlines.length} reviewed deadline${deadlines.length === 1 ? " was" : "s were"} added to the file.`;
+  showMessage("#review-error", ""); latestIcs = buildIcs(deadlines); prepareDownload();
+  document.querySelector("#success-copy").textContent = `${deadlines.length} reviewed deadline${deadlines.length === 1 ? " is" : "s are"} ready to download.`;
   setStep("download"); successPanel.scrollIntoView({ behavior: "smooth", block: "start" });
 });
-document.querySelector("#download-again").addEventListener("click", downloadIcs);
+document.querySelector("#download-link").addEventListener("click", () => {
+  document.querySelector("#download-help").textContent = "Download started. Open syllabus-sync-deadlines.ics from your browser downloads to add the dates to your calendar.";
+});
 document.querySelector("#offer-button").addEventListener("click", (event) => { event.currentTarget.disabled = true; event.currentTarget.textContent = "Interest recorded on this device"; document.querySelector("#offer-response").textContent = "Thank you. No payment or contact information was collected. Please tell the test moderator that you selected this option."; });
