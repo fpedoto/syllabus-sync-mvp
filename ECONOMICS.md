@@ -28,3 +28,7 @@ At 100 paid semester purchases, this model implies:
 ## Repeat purchase and fragile assumptions
 
 We assume **50% of paying users purchase again the following semester**. This has not been tested. The most fragile economic assumption is whether enough students value avoided manual entry enough to pay $4.99 after trying the workflow. The paid-offer click tests interest, not a completed purchase, so it is weaker evidence than collected revenue.
+
+## Evidence connection
+
+In the completed MVP test, **15 of 20 eligible participants (75%) clicked the $4.99-per-semester offer** after using the product. This supports testing $4.99 in a real payment experiment rather than lowering the price based on opinions alone. It does **not** establish a 75% purchase-conversion rate because the MVP collected neither payment nor contact information. Actual checkout completion, acquisition cost, repeat purchase, and support costs remain unresolved economic assumptions.

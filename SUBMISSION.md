@@ -9,6 +9,15 @@
 - **Decision:** **Continue.** Both thresholds were exceeded.
 - **Revision:** After Wave 1, a numbered download → locate → open path addressed observed download-location confusion. Confusion decreased from 1/10 to 0/10 in Wave 2 while calendar opens remained 10/10.
 
+## Syllabus alignment
+
+- **Live venture artifact:** The deployed landing page includes a meaningful paste → extract → review → calendar-download interaction and a $4.99 call to action; it is not a static mockup.
+- **Consequential assumption:** Students will complete the workflow without help and demonstrate paid interest at $4.99 per semester.
+- **Ethical behavioral test:** Twenty eligible students were observed under a disclosed, voluntary, no-help protocol with no sensitive information, payment details, or syllabus text retained.
+- **Learning value:** The team applied its precommitted Continue rule while distinguishing paid-interest clicks from purchases and identifying actual payment as the next experiment.
+- **Coherent economics:** The $4.99 semester price, variable cost, contribution, acquisition ceiling, cash implication, and untested retention assumption are explicit; the economics snapshot connects the offer to the observed 15/20 click result.
+- **Revision:** A critical-path friction observed in Wave 1 produced a deployed change that was tested with 10 new participants in Wave 2.
+
 ## Evidence package
 
 - [`EXPERIMENT.md`](EXPERIMENT.md) — causal claim, denominator, decision rule, ethics, and consent
