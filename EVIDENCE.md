@@ -18,16 +18,16 @@ Use one row for every eligible student invited. `Y` or `N` is clearer than a bla
 
 | ID | Opened | Began paste | Reached review | Downloaded ≤5 min | Unassisted | Offer clicked | Opened calendar file | Time | First observed friction | Wave |
 |---|---|---|---|---|---|---|---|---|---|---|
-| P01 | | | | | | | | | | 1 |
-| P02 | | | | | | | | | | 1 |
-| P03 | | | | | | | | | | 1 |
-| P04 | | | | | | | | | | 1 |
-| P05 | | | | | | | | | | 1 |
-| P06 | | | | | | | | | | 1 |
-| P07 | | | | | | | | | | 1 |
-| P08 | | | | | | | | | | 1 |
-| P09 | | | | | | | | | | 1 |
-| P10 | | | | | | | | | | 1 |
+| P01 | Y | Y | Y | Y | Y | Y | Y | ~3:00 | None observed | 1 |
+| P02 | Y | Y | Y | Y | Y | Y | Y | ~3:00 | None observed | 1 |
+| P03 | Y | Y | Y | Y | Y | Y | Y | ~3:00 | None observed | 1 |
+| P04 | Y | Y | Y | Y | Y | N | Y | ~3:00 | None observed | 1 |
+| P05 | Y | Y | Y | Y | Y | Y | Y | 2–3 min | Reread instructions | 1 |
+| P06 | Y | Y | Y | Y | Y | Y | Y | 2–3 min | Reread instructions | 1 |
+| P07 | Y | Y | Y | Y | Y | Y | Y | 2–3 min | Unsure where downloaded file was located | 1 |
+| P08 | Y | Y | Y | Y | Y | Y | Y | 2–3 min | None observed | 1 |
+| P09 | Y | Y | Y | Y | Y | Y | Y | 2–3 min | None observed | 1 |
+| P10 | Y | Y | Y | Y | Y | N | Y | 2–3 min | None observed | 1 |
 | P11 | | | | | | | | | | 2 |
 | P12 | | | | | | | | | | 2 |
 | P13 | | | | | | | | | | 2 |
@@ -40,6 +40,17 @@ Use one row for every eligible student invited. `Y` or `N` is clearer than a bla
 | P20 | | | | | | | | | | 2 |
 
 ## Results (complete after all 20 invitations)
+
+### Wave 1 checkpoint — September 16–17, 2026
+
+- Eligible students invited and tested: **10/10**
+- Unassisted downloads within five minutes: **10/10**
+- Calendar files successfully opened: **10/10**
+- $4.99 offer clicks: **8/10**
+- Approximate completion time: **2–3 minutes** (the first four were recorded at roughly three minutes)
+- Observed friction: **2/10 reread instructions; 1/10 was unsure where to locate the downloaded file; 7/10 showed no visible friction**
+- Strongest early signal: Every participant completed the core behavior, and eight selected the paid-interest action.
+- Important limitation: Exact individual times were not captured, and the anonymous row assignment of aggregate offer-click totals was reconstructed after the sessions. The aggregate totals are the authoritative evidence.
 
 - Test dates/settings:
 - Eligible students invited: **__/20**
@@ -58,10 +69,10 @@ Use one row for every eligible student invited. `Y` or `N` is clearer than a bla
 ## Revision verification
 
 - Wave 1 denominator: **10 invited**
-- Consequential change made after Wave 1:
-- Behavior that justified it:
+- Consequential change made after Wave 1: Added a prominent three-step post-download path explaining how to download, locate, and open the `.ics` file.
+- Behavior that justified it: One of 10 participants was unsure where the downloaded file was located, and two reread instructions.
 - Wave 2 denominator: **10 invited**
-- Metric used to check the revision:
-- Wave 1 result on that metric:
+- Metric used to check the revision: Participants who locate and open the calendar file without visible download-location confusion.
+- Wave 1 result on that metric: **9/10 without download-location confusion; 10/10 ultimately opened the file.**
 - Wave 2 result on that metric:
 - Verification conclusion:

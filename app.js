@@ -54,6 +54,6 @@ document.querySelector("#download-button").addEventListener("click", () => {
   setStep("download"); successPanel.scrollIntoView({ behavior: "smooth", block: "start" });
 });
 document.querySelector("#download-link").addEventListener("click", () => {
-  document.querySelector("#download-help").textContent = "Download started. Open syllabus-sync-deadlines.ics from your browser downloads to add the dates to your calendar.";
+  document.querySelector("#download-status").textContent = "Download started. Next, open your browser's Downloads list and select syllabus-sync-deadlines.ics.";
 });
 document.querySelector("#offer-button").addEventListener("click", (event) => { event.currentTarget.disabled = true; event.currentTarget.textContent = "Interest recorded on this device"; document.querySelector("#offer-response").textContent = "Thank you. No payment or contact information was collected. Please tell the test moderator that you selected this option."; });
