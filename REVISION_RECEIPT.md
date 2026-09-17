@@ -13,8 +13,8 @@
 - **How Wave 2 differed:** The remaining 10 eligible students saw the revised version under the same no-help rule and five-minute limit.
 - **Metric selected to verify the revision:** Participants who locate and open the calendar file without visible download-location confusion.
 - **Wave 1 result:** 9/10 had no download-location confusion; 10/10 ultimately opened the file.
-- **Wave 2 result:**
-- **Was the revision verified? Why or why not?:**
+- **Wave 2 result:** 10/10 located and opened the calendar file without download-location confusion; one participant reread instructions.
+- **Was the revision verified? Why or why not?:** Yes, within this sample. Download-location confusion decreased from 1/10 to 0/10 while successful calendar opens remained 10/10. Instruction rereading also fell from 2/10 to 1/10.
 - **The next unresolved assumption is:** Whether paid-interest clicks convert into actual $4.99 purchases and repeat the following semester.
 
 Attach no names, screenshots containing syllabus content, or unsupported claims. Link the revision commit if possible.
