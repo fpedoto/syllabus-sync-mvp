@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Career Closet prototype: preview an independent on-campus professional outfit rental request for an upcoming event.">
+  <title>Career Closet | Pilot request prototype</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23142334'/%3E%3Cpath d='M19 16l13 9 13-9 5 7-9 10v18H23V33L14 23z' fill='none' stroke='%23ddb56b' stroke-width='4' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <style>
+    :root{font-family:Arial,Helvetica,sans-serif;color:#17212a;background:#f7f9fb;font-size:16px}
+    *{box-sizing:border-box}body{margin:0}button,input,select{font:inherit}button{cursor:pointer}
+    .shell{max-width:1320px;margin:auto;min-height:100vh;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(380px,.85fr)}
+    .left{padding:34px clamp(24px,5vw,78px) 60px;background:#f7f9fb}.brand{font-size:1rem;font-weight:800;letter-spacing:.13em;color:#254e70}
+    .eyebrow{margin:72px 0 16px;color:#254e70;font-size:.9rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+    h1{font-size:clamp(2.5rem,5vw,4.6rem);line-height:1.04;letter-spacing:-.045em;max-width:660px;margin:0 0 22px;color:#142334}
+    .intro{font-size:1.2rem;line-height:1.55;max-width:620px;margin:0 0 25px;color:#52606c}
+    .notice{border-left:4px solid #ddb56b;background:#fff;padding:16px 18px;line-height:1.5;margin:25px 0 30px;max-width:640px}
+    form{max-width:650px}.fieldrow{display:grid;grid-template-columns:1fr 1fr;gap:18px}label{display:block;font-weight:700;margin:0 0 9px;color:#142334}
+    .field{margin:0 0 20px}input,select{width:100%;height:51px;border:1px solid #aebeca;border-radius:5px;background:white;padding:0 14px;color:#17212a}
+    input:focus,select:focus,button:focus-visible{outline:3px solid #8cbada;outline-offset:2px}
+    .price{display:flex;gap:12px;align-items:baseline;margin:10px 0 23px}.price strong{font-size:2.1rem;color:#142334}.price span{color:#52606c}
+    .action{min-height:55px;background:#254e70;color:#fff;border:0;border-radius:5px;padding:14px 26px;font-weight:800}.action:hover{background:#193b59}
+    .subtle{font-size:.9rem;color:#52606c;line-height:1.45;margin-top:14px}
+    .result{display:none;background:#fff;border:1px solid #ccd6df;border-radius:8px;padding:24px;margin-top:26px;max-width:650px}
+    .result.show{display:block}.result h2{margin:0 0 10px;color:#142334;font-size:1.5rem}.result p{line-height:1.5}.result dl{display:grid;grid-template-columns:130px 1fr;gap:9px 12px}.result dt{color:#52606c}.result dd{margin:0;font-weight:700}.secondary{background:#fff;border:1px solid #254e70;border-radius:5px;padding:11px 16px;color:#254e70;font-weight:700}
+    .right{position:relative;min-height:100vh;background:#142334}.right img{height:100%;width:100%;object-fit:cover;object-position:65% center;display:block}.caption{position:absolute;bottom:26px;right:28px;background:rgba(20,35,52,.76);color:#fff;font-size:.85rem;padding:9px 12px;border-radius:3px}
+    @media(max-width:900px){.shell{display:block}.right{min-height:0;height:310px}.left{padding:28px 24px 50px}.eyebrow{margin-top:38px}.right img{object-position:center 54%}}
+    @media(max-width:560px){.fieldrow{grid-template-columns:1fr;gap:0}.intro{font-size:1.08rem}.price{display:block}.result dl{grid-template-columns:100px 1fr}.right{height:230px}}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="left" aria-labelledby="main-title">
+      <div class="brand">CAREER CLOSET</div>
+      <p class="eyebrow">On-campus rental concept</p>
+      <h1 id="main-title">A professional outfit for your next big day.</h1>
+      <p class="intro">Preview a 72-hour outfit request for an interview, recruiting event, or presentation. The proposed rental price is $18.</p>
+      <div class="notice"><strong>Independent student prototype.</strong> This is not Ohio State’s Reid Family Career Closet. Outfits are not currently available. This page does not book clothing, collect payment, or send your details to anyone.</div>
+      <form id="request-form">
+        <div class="fieldrow">
+          <div class="field"><label for="event">Event</label><select id="event" required><option value="">Choose one</option><option>Job or internship interview</option><option>Business fraternity recruiting</option><option>Career fair</option><option>Class presentation</option><option>Other professional event</option></select></div>
+          <div class="field"><label for="date">Event date</label><input id="date" type="date" required></div>
+        </div>
+        <div class="fieldrow">
+          <div class="field"><label for="size">Typical jacket or top size</label><select id="size" required><option value="">Choose one</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>2XL</option><option>3XL</option><option>Unsure, need fitting help</option></select></div>
+          <div class="field"><label for="style">Outfit type</label><select id="style" required><option value="">Choose one</option><option>Suit or blazer and trousers</option><option>Blazer and skirt</option><option>Professional dress</option><option>Flexible, show me options</option></select></div>
+        </div>
+        <div class="price"><strong>$18</strong><span>proposed price for a 72-hour rental</span></div>
+        <button class="action" type="submit">Preview my request</button>
+        <p class="subtle">Your choices stay in this browser tab. Completing this preview does not reserve an outfit or indicate payment.</p>
+      </form>
+      <section class="result" id="result" aria-live="polite" aria-labelledby="result-title">
+        <h2 id="result-title">Request preview complete</h2>
+        <p>This is what you would request if the pilot opens. <strong>No outfit is reserved and no payment is due.</strong></p>
+        <dl id="summary"></dl>
+        <button class="secondary" id="download" type="button">Download summary</button>
+      </section>
+    </section>
+    <aside class="right" aria-label="Illustrative professional clothing image"><img src="./concept-photo.png" alt="Illustrative rail of professional clothing"><div class="caption">Illustrative image, not current inventory</div></aside>
+  </main>
+  <script>
+    const form=document.getElementById('request-form');
+    const result=document.getElementById('result');
+    const summary=document.getElementById('summary');
+    const dateInput=document.getElementById('date');
+    const today=new Date();today.setHours(0,0,0,0);dateInput.min=today.toISOString().slice(0,10);
+    let lastRequest=null;
+    form.addEventListener('submit',event=>{
+      event.preventDefault();
+      const date=new Date(dateInput.value+'T12:00:00');
+      if(Number.isNaN(date.getTime())||date<today){dateInput.setCustomValidity('Choose today or a future date.');dateInput.reportValidity();return}
+      dateInput.setCustomValidity('');
+      lastRequest={event:document.getElementById('event').value,date:date.toLocaleDateString(undefined,{year:'numeric',month:'long',day:'numeric'}),size:document.getElementById('size').value,style:document.getElementById('style').value,price:'$18 proposed'};
+      summary.replaceChildren();
+      for(const [label,value] of [['Event',lastRequest.event],['Date',lastRequest.date],['Size',lastRequest.size],['Outfit',lastRequest.style],['Price',lastRequest.price]]){
+        const dt=document.createElement('dt');dt.textContent=label;const dd=document.createElement('dd');dd.textContent=value;summary.append(dt,dd)
+      }
+      result.classList.add('show');result.scrollIntoView({behavior:'smooth',block:'nearest'});
+    });
+    dateInput.addEventListener('change',()=>dateInput.setCustomValidity(''));
+    document.getElementById('download').addEventListener('click',()=>{
+      if(!lastRequest)return;
+      const body=`Career Closet request preview\n\nEvent: ${lastRequest.event}\nDate: ${lastRequest.date}\nSize: ${lastRequest.size}\nOutfit: ${lastRequest.style}\nProposed price: $18 for 72 hours\n\nIndependent student prototype. Not affiliated with Ohio State’s Reid Family Career Closet. No outfit reserved. No payment collected.\n`;
+      const url=URL.createObjectURL(new Blob([body],{type:'text/plain'}));const a=document.createElement('a');a.href=url;a.download='career-closet-request-preview.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)
+    });
+    if(document.modelContext?.registerTool){
+      const tool={name:'preview_outfit_request',title:'Preview outfit request',description:'Fill the prototype request form and show a local-only summary. Does not reserve clothing or collect payment.',inputSchema:{type:'object',properties:{event:{type:'string'},date:{type:'string'},size:{type:'string'},style:{type:'string'}},required:['event','date','size','style'],additionalProperties:false},annotations:{readOnlyHint:false,untrustedContentHint:false},execute(input){
+        const fields={event:['Job or internship interview','Business fraternity recruiting','Career fair','Class presentation','Other professional event'],size:['XS','S','M','L','XL','2XL','3XL','Unsure, need fitting help'],style:['Suit or blazer and trousers','Blazer and skirt','Professional dress','Flexible, show me options']};
+        for(const key of ['event','size','style'])if(!fields[key].includes(input[key]))throw new Error(`Invalid ${key}`);
+        if(!/^\d{4}-\d{2}-\d{2}$/.test(input.date))throw new Error('Invalid date');
+        for(const key of ['event','size','style'])document.getElementById(key).value=input[key];dateInput.value=input.date;
+        form.requestSubmit();if(!result.classList.contains('show'))throw new Error('Could not complete preview');
+        return {status:'preview_only',reserved:false,paymentCollected:false,request:lastRequest}
+      }};
+      try{Promise.resolve(document.modelContext.registerTool(tool)).catch(()=>{})}catch{}
+    }
+  </script>
+</body>
+</html>
